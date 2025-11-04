@@ -6,9 +6,7 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
   const endpoint = searchParams.get("endpoint")
 
-  if (!endpoint) {
-    return NextResponse.json({ error: "Endpoint is required" }, { status: 400 })
-  }
+  if (!endpoint) return NextResponse.json({ error: "Endpoint is required" }, { status: 400 })
 
   try {
     const url = `${DEEZER_API_BASE}${endpoint}`

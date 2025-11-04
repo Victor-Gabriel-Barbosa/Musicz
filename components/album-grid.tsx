@@ -10,9 +10,7 @@ interface AlbumGridProps {
 export function AlbumGrid({ albums }: AlbumGridProps) {
   const validAlbums = albums.filter((album) => album && album.id && album.title && album.artist && album.artist.name)
 
-  if (validAlbums.length === 0) {
-    return null
-  }
+  if (validAlbums.length === 0) return null
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">

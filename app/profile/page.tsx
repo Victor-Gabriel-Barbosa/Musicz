@@ -16,9 +16,7 @@ export default function ProfilePage() {
   const router = useRouter()
 
   useEffect(() => {
-    if (!loading && !user) {
-      router.push("/login")
-    }
+    if (!loading && !user) router.push("/login")
   }, [user, loading, router])
 
   const handleLogout = async () => {

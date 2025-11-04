@@ -72,9 +72,7 @@ export default function PlaylistPage() {
     )
   }
 
-  if (!playlist) {
-    return null
-  }
+  if (!playlist) return null
 
   return (
     <div className="flex h-screen overflow-hidden">

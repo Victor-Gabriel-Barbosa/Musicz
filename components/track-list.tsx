@@ -31,16 +31,11 @@ export function TrackList({ tracks, showAlbumColumn = true }: TrackListProps) {
       track.duration,
   )
 
-  if (validTracks.length === 0) {
-    return null
-  }
+  if (validTracks.length === 0) return null
 
   const handlePlayTrack = (track: DeezerTrack, index: number) => {
-    if (currentTrack?.id === track.id) {
-      togglePlay()
-    } else {
-      playQueue(validTracks, index)
-    }
+    if (currentTrack?.id === track.id) togglePlay()
+    else playQueue(validTracks, index)
   }
 
   return (

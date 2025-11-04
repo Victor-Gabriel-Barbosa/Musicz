@@ -131,9 +131,7 @@ export function PlaylistProvider({ children }: { children: ReactNode }) {
   const updatePlaylist = (id: string, updates: Partial<Playlist>) => {
     setPlaylists((prev) =>
       prev.map((playlist) => {
-        if (playlist.id === id) {
-          return { ...playlist, ...updates }
-        }
+        if (playlist.id === id) return { ...playlist, ...updates }
         return playlist
       }),
     )
@@ -160,8 +158,6 @@ export function PlaylistProvider({ children }: { children: ReactNode }) {
 
 export function usePlaylist() {
   const context = useContext(PlaylistContext)
-  if (!context) {
-    throw new Error("usePlaylist must be used within PlaylistProvider")
-  }
+  if (!context) throw new Error("usePlaylist must be used within PlaylistProvider")
   return context
 }

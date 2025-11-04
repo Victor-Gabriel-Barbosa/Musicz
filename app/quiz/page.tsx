@@ -36,9 +36,7 @@ export default function QuizPage() {
   }, [])
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.5
-    }
+    if (audioRef.current) audioRef.current.volume = 0.5
   }, [])
 
   const loadQuestions = async () => {
@@ -82,11 +80,9 @@ export default function QuizPage() {
   const togglePlay = () => {
     if (!audioRef.current) return
 
-    if (isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play()
-    }
+    if (isPlaying) audioRef.current.pause()
+    else audioRef.current.play()
+
     setIsPlaying(!isPlaying)
   }
 
@@ -102,9 +98,8 @@ export default function QuizPage() {
 
     // Auto advance after 2 seconds
     setTimeout(() => {
-      if (currentQuestion < TOTAL_QUESTIONS - 1) {
-        nextQuestion()
-      } else {
+      if (currentQuestion < TOTAL_QUESTIONS - 1) nextQuestion()
+      else {
         setGameOver(true)
         if (audioRef.current) {
           audioRef.current.pause()

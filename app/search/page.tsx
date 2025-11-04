@@ -26,9 +26,8 @@ export default function SearchPage() {
   const debouncedQuery = useDebounce(query, 500)
 
   useEffect(() => {
-    if (debouncedQuery.trim()) {
-      performSearch(debouncedQuery)
-    } else {
+    if (debouncedQuery.trim()) performSearch(debouncedQuery)
+    else {
       setTracks([])
       setAlbums([])
       setArtists([])

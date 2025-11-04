@@ -69,9 +69,7 @@ export default function PlaylistPage() {
   }
 
   const handlePlayAll = () => {
-    if (playlist.tracks.length > 0) {
-      playQueue(playlist.tracks)
-    }
+    if (playlist.tracks.length > 0) playQueue(playlist.tracks)
   }
 
   const handleEdit = () => {

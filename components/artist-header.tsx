@@ -9,7 +9,7 @@ interface ArtistHeaderProps {
 
 export function ArtistHeader({ artist }: ArtistHeaderProps) {
   return (
-    <div className="relative bg-gradient-to-b from-primary/20 to-background p-6 md:p-8">
+    <div className="relative bg-linear-to-b from-primary/20 to-background p-6 md:p-8">
       <div className="flex flex-col md:flex-row gap-6 items-start md:items-end">
         <div className="relative h-48 w-48 md:h-56 md:w-56 rounded-full overflow-hidden shadow-2xl flex-shrink-0">
           <Image

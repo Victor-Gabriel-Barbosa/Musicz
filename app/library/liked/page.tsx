@@ -16,9 +16,7 @@ export default function LikedTracksPage() {
   const { playQueue } = useMusic()
 
   const handlePlayAll = () => {
-    if (likedTracks.length > 0) {
-      playQueue(likedTracks)
-    }
+    if (likedTracks.length > 0) playQueue(likedTracks)
   }
 
   return (

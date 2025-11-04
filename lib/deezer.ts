@@ -1,16 +1,12 @@
 // Deezer API client
 
 function getBaseUrl() {
-  // Client-side can use relative URLs
-  if (typeof window !== "undefined") {
-    return ""
-  }
+  // Client-side pode usar URLs relativas
+  if (typeof window !== "undefined") return ""
 
-  // Server-side needs absolute URLs
-  // Check for Vercel deployment URL
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
-  }
+  // Server-side precisa de URLs absolutas
+  // Verifica o URL de implantação do Vercel
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
 
   // Fallback to localhost for local development
   return "http://localhost:3000"

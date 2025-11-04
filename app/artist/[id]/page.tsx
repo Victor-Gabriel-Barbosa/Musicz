@@ -65,9 +65,7 @@ export default function ArtistPage() {
 
   // Redireciona para 404 se houver erro
   useEffect(() => {
-    if (error) {
-      router.push('/404')
-    }
+    if (error) router.push('/404')
   }, [error, router])
 
   if (isLoading) {
@@ -85,9 +83,7 @@ export default function ArtistPage() {
     )
   }
 
-  if (!artist) {
-    return null
-  }
+  if (!artist) return null
 
   return (
     <div className="flex h-screen overflow-hidden">

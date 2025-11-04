@@ -27,9 +27,7 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
     )
   }
 
-  if (!user) {
-    return null
-  }
+  if (!user) return null
 
   return <>{children}</>
 }

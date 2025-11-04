@@ -19,7 +19,7 @@ interface MusicContextType {
   previousTrack: () => void
   seekTo: (time: number) => void
   setVolume: (volume: number) => void
-  audioRef: React.RefObject<HTMLAudioElement>
+  audioRef: React.RefObject<HTMLAudioElement | null>
 }
 
 const MusicContext = createContext<MusicContextType | undefined>(undefined)
@@ -31,7 +31,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [volume, setVolumeState] = useState(0.7)
-  const audioRef = useRef<HTMLAudioElement>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const playTrack = (track: DeezerTrack) => {
     setCurrentTrack(track)
@@ -49,11 +49,9 @@ export function MusicProvider({ children }: { children: ReactNode }) {
   const togglePlay = () => {
     if (!audioRef.current) return
 
-    if (isPlaying) {
-      audioRef.current.pause()
-    } else {
-      audioRef.current.play()
-    }
+    if (isPlaying) audioRef.current.pause()
+    else audioRef.current.play()
+    
     setIsPlaying(!isPlaying)
   }
 
@@ -119,8 +117,6 @@ export function MusicProvider({ children }: { children: ReactNode }) {
 
 export function useMusic() {
   const context = useContext(MusicContext)
-  if (!context) {
-    throw new Error("useMusic must be used within MusicProvider")
-  }
+  if (!context) throw new Error("useMusic must be used within MusicProvider")
   return context
 }
