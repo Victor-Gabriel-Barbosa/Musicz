@@ -28,7 +28,7 @@ Musicz é uma aplicação de streaming que permite descobrir, ouvir e gerenciar 
 - **Next.js 16.3.2** - Framework React
 - **TypeScript** - Tipagem estática
 - **Tailwind CSS** - Estilização
-- **Firebase** - Autenticação
+- **Firebase** - Autenticação & Firestore (armazenamento em nuvem de playlists e curtidas)
 - **Deezer API** - Catálogo musical
 - **Radix UI** - Componentes acessíveis
 
