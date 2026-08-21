@@ -56,7 +56,10 @@ export function Sidebar() {
         currentTrack ? "pb-24" : "pb-0"
       )}
     >
-      <div className="flex items-center gap-2.5 p-6">
+      <Link
+        href="/"
+        className="flex items-center gap-2.5 p-6 transition-opacity hover:opacity-80 cursor-pointer"
+      >
         <Image
           src="/icon0.svg"
           alt="Musicz Logo"
@@ -66,7 +69,7 @@ export function Sidebar() {
           priority
         />
         <span className="text-xl font-bold text-sidebar-foreground">Musicz</span>
-      </div>
+      </Link>
 
       <nav className="flex-1 px-3 space-y-1">
         {navigation.map((item) => {
