@@ -24,7 +24,7 @@ export default function AlbumPage() {
       try {
         setIsLoading(true)
         const albumId = Number(params.id)
-        
+
         if (isNaN(albumId)) {
           console.error("Invalid album ID:", params.id)
           setError(true)
@@ -40,7 +40,7 @@ export default function AlbumPage() {
 
         setAlbum(albumData)
       } catch (err) {
-        console.error("[v0] Error loading album:", err)
+        console.error("[Musicz] Error loading album:", err)
         setError(true)
       } finally {
         setIsLoading(false)

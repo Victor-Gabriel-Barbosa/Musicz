@@ -5,7 +5,7 @@ import { MobileNav } from "@/components/mobile-nav"
 import { Player } from "@/components/player"
 import { usePlaylist } from "@/lib/playlist-context"
 import { useMusic } from "@/lib/music-context"
-import { Music, Heart, Clock, Plus, Trash2 } from "lucide-react"
+import { Heart, Clock, Plus, Trash2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -144,8 +144,14 @@ export default function LibraryPage() {
                               className="object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Music className="h-12 w-12 text-muted-foreground" />
+                            <div className="w-full h-full flex items-center justify-center p-3">
+                              <Image
+                                src="/icon0.svg"
+                                alt={playlist.name}
+                                width={48}
+                                height={48}
+                                className="h-12 w-12 object-contain opacity-70"
+                              />
                             </div>
                           )}
                         </div>

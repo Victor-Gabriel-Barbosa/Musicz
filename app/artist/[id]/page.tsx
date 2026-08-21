@@ -28,7 +28,7 @@ export default function ArtistPage() {
       try {
         setIsLoading(true)
         const artistId = Number(params.id)
-        
+
         // Valida se é um número válido
         if (isNaN(artistId)) {
           console.error("Invalid artist ID:", params.id)
@@ -37,7 +37,7 @@ export default function ArtistPage() {
         }
 
         console.log("Fetching artist data for ID:", artistId)
-        
+
         const [artistData, topTracksData, albumsData] = await Promise.all([
           getArtist(artistId),
           getArtistTopTracks(artistId),
@@ -53,7 +53,7 @@ export default function ArtistPage() {
         setTopTracks(topTracksData)
         setAlbums(albumsData)
       } catch (err) {
-        console.error("[v0] Error loading artist:", err)
+        console.error("[Musicz] Error loading artist:", err)
         setError(true)
       } finally {
         setIsLoading(false)

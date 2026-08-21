@@ -4,13 +4,15 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { useAuth } from "@/lib/auth-context"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Music2, Mail, Lock, AlertCircle } from "lucide-react"
+import { Mail, Lock, AlertCircle, ArrowLeft } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
 export default function LoginPage() {
@@ -67,10 +69,30 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-primary/5 p-4">
-      <Card className="w-full max-w-md border-border/50 shadow-2xl">
-        <CardHeader className="space-y-4 text-center">
-          <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-            <Music2 className="w-8 h-8 text-primary" />
+      <Card className="relative w-full max-w-md border-border/50 shadow-2xl">
+        <div className="absolute left-4 top-4">
+          <Link href="/">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="gap-1.5 text-muted-foreground hover:text-foreground h-9 px-2.5 rounded-lg hover:bg-muted/80 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              <span className="text-sm font-medium">Voltar</span>
+            </Button>
+          </Link>
+        </div>
+
+        <CardHeader className="space-y-4 text-center pt-8">
+          <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center p-2 shadow-inner">
+            <Image
+              src="/icon0.svg"
+              alt="Musicz Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10 object-contain rounded-lg"
+              priority
+            />
           </div>
           <div>
             <CardTitle className="text-3xl font-bold">Bem-vindo ao Musicz</CardTitle>

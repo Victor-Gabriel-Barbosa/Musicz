@@ -49,7 +49,7 @@ export default function SearchPage() {
       setArtists(artistsData)
       setPlaylists(playlistsData)
     } catch (error) {
-      console.error("[v0] Search error:", error)
+      console.error("[Musicz] Search error:", error)
     } finally {
       setIsLoading(false)
     }

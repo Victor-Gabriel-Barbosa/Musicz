@@ -116,7 +116,15 @@ export default function PlaylistPage() {
                     className="object-cover"
                   />
                 ) : (
-                  <Music className="h-24 w-24 text-muted-foreground" />
+                  <div className="w-full h-full flex items-center justify-center p-6 bg-muted/40">
+                    <Image
+                      src="/icon0.svg"
+                      alt={playlist.name}
+                      width={96}
+                      height={96}
+                      className="h-24 w-24 object-contain opacity-80"
+                    />
+                  </div>
                 )}
               </div>
               <div className="flex-1 min-w-0">

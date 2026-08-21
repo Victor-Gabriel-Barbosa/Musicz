@@ -8,11 +8,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Sidebar } from "@/components/sidebar"
 import { MobileNav } from "@/components/mobile-nav"
 import { Player } from "@/components/player"
-import { LogOut, Mail, UserIcon } from "lucide-react"
+import { LogOut, Mail, UserIcon, Sun, Moon, Laptop, Palette } from "lucide-react"
 import { useEffect } from "react"
+import { useTheme } from "next-themes"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function ProfilePage() {
   const { user, logout, loading } = useAuth()
+  const { theme, setTheme } = useTheme()
   const router = useRouter()
 
   useEffect(() => {
@@ -65,7 +68,7 @@ export default function ProfilePage() {
         <div className="container max-w-4xl mx-auto p-6 space-y-6">
           <div>
             <h1 className="text-3xl font-bold mb-2">Perfil</h1>
-            <p className="text-muted-foreground">Gerencie suas informações de conta</p>
+            <p className="text-muted-foreground">Gerencie suas informações de conta e preferências</p>
           </div>
 
           <Card>
@@ -102,6 +105,49 @@ export default function ProfilePage() {
                 <Button onClick={handleLogout} variant="destructive" className="w-full sm:w-auto">
                   <LogOut className="mr-2 h-4 w-4" />
                   Sair da Conta
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Palette className="h-5 w-5 text-primary" />
+                  <CardTitle>Aparência e Tema</CardTitle>
+                </div>
+                <CardDescription className="mt-1.5">
+                  Personalize como o aplicativo é exibido no seu dispositivo
+                </CardDescription>
+              </div>
+              <ThemeToggle className="h-10 w-10 border border-border/60 hover:bg-accent" />
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Button
+                  variant={theme === "light" ? "default" : "outline"}
+                  className="justify-start gap-3 h-12"
+                  onClick={() => setTheme("light")}
+                >
+                  <Sun className="h-5 w-5" />
+                  <span>Tema Claro</span>
+                </Button>
+                <Button
+                  variant={theme === "dark" ? "default" : "outline"}
+                  className="justify-start gap-3 h-12"
+                  onClick={() => setTheme("dark")}
+                >
+                  <Moon className="h-5 w-5" />
+                  <span>Tema Escuro</span>
+                </Button>
+                <Button
+                  variant={theme === "system" ? "default" : "outline"}
+                  className="justify-start gap-3 h-12"
+                  onClick={() => setTheme("system")}
+                >
+                  <Laptop className="h-5 w-5" />
+                  <span>Sistema</span>
                 </Button>
               </div>
             </CardContent>

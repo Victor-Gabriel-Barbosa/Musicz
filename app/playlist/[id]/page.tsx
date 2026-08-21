@@ -24,7 +24,7 @@ export default function PlaylistPage() {
       try {
         setIsLoading(true)
         const playlistId = Number(params.id)
-        
+
         if (isNaN(playlistId)) {
           console.error("Invalid playlist ID:", params.id)
           setError(true)
@@ -40,7 +40,7 @@ export default function PlaylistPage() {
 
         setPlaylist(playlistData)
       } catch (err) {
-        console.error("[v0] Error loading playlist:", err)
+        console.error("[Musicz] Error loading playlist:", err)
         setError(true)
       } finally {
         setIsLoading(false)

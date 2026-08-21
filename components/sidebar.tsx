@@ -1,10 +1,12 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
-import { Home, Search, Library, Music2, Brain, LogOut, User } from "lucide-react"
+import { Home, Search, Library, Brain, LogOut, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useAuth } from "@/lib/auth-context"
+import { useMusic } from "@/lib/music-context"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -15,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const navigation = [
   { name: "Início", href: "/", icon: Home },
@@ -27,6 +30,7 @@ export function Sidebar() {
   const pathname = usePathname()
   const router = useRouter()
   const { user, logout } = useAuth()
+  const { currentTrack } = useMusic()
 
   const handleLogout = async () => {
     await logout()
@@ -46,9 +50,21 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="hidden lg:flex lg:flex-col lg:w-64 bg-sidebar border-r border-sidebar-border">
-      <div className="flex items-center gap-2 p-6">
-        <Music2 className="h-8 w-8 text-primary" />
+    <aside
+      className={cn(
+        "hidden lg:flex lg:flex-col lg:w-64 bg-sidebar border-r border-sidebar-border transition-all duration-300",
+        currentTrack ? "pb-24" : "pb-0"
+      )}
+    >
+      <div className="flex items-center gap-2.5 p-6">
+        <Image
+          src="/icon0.svg"
+          alt="Musicz Logo"
+          width={32}
+          height={32}
+          className="h-8 w-8 object-contain rounded-md"
+          priority
+        />
         <span className="text-xl font-bold text-sidebar-foreground">Musicz</span>
       </div>
 
@@ -71,6 +87,14 @@ export function Sidebar() {
             </Link>
           )
         })}
+
+        <ThemeToggle
+          className="w-full justify-start gap-3 px-3 py-3 rounded-lg text-sm font-medium text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors h-auto"
+          iconClassName="h-5 w-5"
+        >
+          <span className="dark:hidden">Escuro</span>
+          <span className="hidden dark:inline">Claro</span>
+        </ThemeToggle>
       </nav>
 
       <div className="p-3 border-t border-sidebar-border">

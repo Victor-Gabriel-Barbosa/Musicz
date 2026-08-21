@@ -6,14 +6,14 @@ import "./globals.css"
 import { MusicProvider } from "@/lib/music-context"
 import { PlaylistProvider } from "@/lib/playlist-context"
 import { AuthProvider } from "@/lib/auth-context"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Musicz - Seu App de Música",
+  title: "Musicz - Seu site de música",
   description: "Descubra e ouça suas músicas favoritas",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -22,14 +22,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
-        <AuthProvider>
-          <MusicProvider>
-            <PlaylistProvider>{children}</PlaylistProvider>
-          </MusicProvider>
-        </AuthProvider>
-        <Analytics />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            <MusicProvider>
+              <PlaylistProvider>{children}</PlaylistProvider>
+            </MusicProvider>
+          </AuthProvider>
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
