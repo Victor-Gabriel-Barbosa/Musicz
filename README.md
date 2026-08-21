@@ -10,6 +10,10 @@ Uma aplicação web moderna de streaming de música construída com Next.js, uti
 ## 🌐 Demo
 Acesse o projeto: https://musicz-delta.vercel.app/
 
+## 📸 Preview
+
+<video src="https://github.com/user-attachments/assets/1b7811c1-33ce-41b7-ad7c-2916f231cf84" controls></video>
+
 ## 🎯 Sobre
 
 Musicz é uma aplicação de streaming que permite descobrir, ouvir e gerenciar músicas. Utiliza a API do Deezer para o catálogo musical e oferece recursos como playlists personalizadas, sistema de curtidas e quiz musical interativo.
