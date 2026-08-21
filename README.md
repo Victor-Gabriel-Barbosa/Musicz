@@ -2,13 +2,13 @@
 
 Uma aplicação web moderna de streaming de música construída com Next.js, utilizando a API do Deezer e Firebase para autenticação.
 
-![Next.js](https://img.shields.io/badge/Next.js-16.0.0-black)
+![Next.js](https://img.shields.io/badge/Next.js-16.3.2-black)
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Firebase](https://img.shields.io/badge/Firebase-Latest-orange)
 
 ## 🌐 Demo
-Acesse o projeto: https://musicz-d.vercel.app/
+Acesse o projeto: https://musicz-delta.vercel.app/
 
 ## 🎯 Sobre
 
@@ -25,7 +25,7 @@ Musicz é uma aplicação de streaming que permite descobrir, ouvir e gerenciar 
 
 ## 🛠️ Tecnologias
 
-- **Next.js 16** - Framework React
+- **Next.js 16.3.2** - Framework React
 - **TypeScript** - Tipagem estática
 - **Tailwind CSS** - Estilização
 - **Firebase** - Autenticação
