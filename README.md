@@ -2,7 +2,7 @@
 
 Uma aplicação web moderna de streaming de música construída com Next.js, utilizando a API do Deezer e Firebase para autenticação.
 
-![Next.js](https://img.shields.io/badge/Next.js-16.0.0-black)
+![Next.js](https://img.shields.io/badge/Next.js-16.3.2-black)
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Firebase](https://img.shields.io/badge/Firebase-Latest-orange)
