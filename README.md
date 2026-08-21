@@ -8,7 +8,7 @@ Uma aplicação web moderna de streaming de música construída com Next.js, uti
 ![Firebase](https://img.shields.io/badge/Firebase-Latest-orange)
 
 ## 🌐 Demo
-Acesse o projeto: https://musicz-d.vercel.app/
+Acesse o projeto: https://musicz-delta.vercel.app/
 
 ## 🎯 Sobre
 
